@@ -1,24 +1,43 @@
--- TEST SIMPLE - Solo para ver si funciona en tu celular
-local player = game.Players.LocalPlayer
+-- TIENDA FALSA CELULAR - Versión Estable
+local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
 local sg = Instance.new("ScreenGui")
-sg.Parent = player:WaitForChild("PlayerGui")
+sg.Name = "TiendaBrainrot"
+sg.ResetOnSpawn = false
+sg.Parent = playerGui
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0.5, 0, 0.3, 0)
-frame.Position = UDim2.new(0.25, 0, 0.35, 0)
-frame.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
-frame.Parent = sg
+local main = Instance.new("Frame")
+main.Size = UDim2.new(0.9, 0, 0.8, 0)
+main.Position = UDim2.new(0.05, 0, 0.1, 0)
+main.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
+main.Parent = sg
 
-local text = Instance.new("TextLabel")
-text.Size = UDim2.new(1,0,1,0)
-text.BackgroundTransparency = 1
-text.Text = "✅ SI FUNCIONA!\nToca para cerrar"
-text.TextColor3 = Color3.new(1,1,1)
-text.TextScaled = true
-text.Parent = frame
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0.12,0)
+title.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
+title.Text = "🛒 TIENDA - STEAL A BRAINROT"
+title.TextColor3 = Color3.new(1,1,1)
+title.TextScaled = true
+title.Font = Enum.Font.GothamBold
+title.Parent = main
 
-frame.InputBegan:Connect(function()
-    sg:Destroy()
-end)
+local close = Instance.new("TextButton")
+close.Size = UDim2.new(0.1,0,0.1,0)
+close.Position = UDim2.new(0.88,0,0.01,0)
+close.BackgroundColor3 = Color3.fromRGB(255,0,0)
+close.Text = "X"
+close.TextColor3 = Color3.new(1,1,1)
+close.TextScaled = true
+close.Parent = main
+close.MouseButton1Click:Connect(function() sg:Destroy() end)
 
-print("Script de prueba ejecutado")
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(0.9,0,0.7,0)
+label.Position = UDim2.new(0.05,0,0.2,0)
+label.BackgroundTransparency = 1
+label.Text = "Tienda cargada correctamente\n\nToca los botones de compra\n\n(Es solo visual)"
+label.TextColor3 = Color3.new(1,1,1)
+label.TextScaled = true
+label.Parent = main
+
+print("✅ Tienda simple cargada")
